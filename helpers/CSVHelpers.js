@@ -8,7 +8,7 @@ const readCSVFile = async (fileName) => {
     return new Promise((resolve, reject) => {
         const results = [];
 
-        fs.createReadStream(DATA_PATH + '\\' + fileName)
+        fs.createReadStream(path.join(DATA_PATH, fileName))
             .pipe(csv())
             .on('data', (data) => results.push(data))
             .on('end', () => resolve(results))
